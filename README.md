@@ -7,7 +7,7 @@ Run under command:    python trial1.py
 
 In minimal-test2 we have a minimal webapp that connects to the API https://pokeapi.co/ and displays all the starter mons. 
 It's just a minimal version so it's easy to check the code in the API part.
-As it is a really simple webapp we won't need to open a server or a framework like Django, just open index.html with your favourite browser and enjoy.
+As it is a really simple webapp we won't need to open a server or a framework like Django, just open index.html with your favourite browser (other than IE) and enjoy.
 Make sure your internet connection is fine, otherwise it won't connect to the API.
 
 
