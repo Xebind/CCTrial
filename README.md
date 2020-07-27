@@ -5,13 +5,16 @@ As it is an easy program it should run in almost any version of python, though I
 Run under command:    python trial1.py
 
 
-In test2 we have a simple webapp that connects to the API https://pokeapi.co/ and displays all the starter mons. 
-I also added a little quizz and modified an old AI program I had and added it to the mix.
+In minimal-test2 we have a minimal webapp that connects to the API https://pokeapi.co/ and displays all the starter mons. 
+It's just a minimal version so it's easy to check the code in the API part.
 As it is a really simple webapp we won't need to open a server or a framework like Django, just open index.html with your favourite browser and enjoy.
+Make sure your internet connection is fine, otherwise it won't connect to the API.
+
+
+
+In test2 we have a more developed version of the minimal-test2 SPA .
+It has the same required functionality but adding some features and styling, such as a little quizz and modified an old AI program I had and added it to the mix.
+As it is still a really simple SPA webapp we won't need to open a server or a framework like Django, just open index.html with your favourite browser and enjoy.
 Make sure your internet connection is fine, otherwise it won't connect to the API.
 You can also view the page in https://xebind.github.io/, where it will be hosted for some time.
 
-
-In minimal-test2 we modified test2 so it only displays the mons on a click, again connecting to the API. 
-It's just a minimal version so it's easy to check the code in the API part.
-Again, just open the file index.html with your browser and making sure the internet works fine the app should work.
