@@ -42,7 +42,7 @@ function clearboard(){
 function GameStart(){
   document.getElementById("Xbutton").style.display = 'none';
   document.getElementById("Obutton").style.display = 'none';
-  document.getElementById("message").innerHTML =  'I dare you to beat my Alakazam in a game of TicTacToe. <br>Beware! He can read your mind!<br><br> Press any key to return to the main menu.';
+  document.getElementById("message").innerHTML =  'I dare you to beat my Alakazam in a game of TicTacToe. <br>Beware, he can read your mind!<br><br> Click here to return to the main menu.';
 
   clearboard();
   canvas = document.getElementById("tttcanvas"); //finds canvas element
@@ -133,21 +133,18 @@ function GameStart(){
 
   function PokeDraw(board, position){
     if (player(board) == X){
-      context.drawImage(fireimg,  square * position[0] + square / 3, square * position[1] + square/4);
+      context.drawImage(fireimg,  square * position[0] , square * position[1] , imgsize, imgsize);
     }
     else{
-      context.drawImage(waterimg,  square * position[0] + square / 3, square * position[1] + square/4);
+      context.drawImage(waterimg,  square * position[0] , square * position[1] , imgsize, imgsize);
     }
   }
 
   function mousePressed(){
-    console.log(currentboard);
     if (terminal(currentboard)){
-
-   GameStart();
-
-      return;
+      return
     }
+
     if (player(currentboard) == user){
       let position = storeGuess(event);
       let tile = Cords2Tiles(position);
@@ -288,14 +285,10 @@ function GameStart(){
         copyboard[i][j] = board[i][j];
       }
     }
-
     copyboard[action[0]][action[1]] = player(board);
-    //console.log(copyboard);
     return copyboard;
 
   }
-
-
 
   function MaxValue(board){
     if (terminal(board)){
@@ -324,23 +317,26 @@ function GameStart(){
     }
   }
 
+
+  //We use an array to store optimal moves and return a random optimal move so that games wont be always the same.
   function minimax(board){
     //code for player O
     if (player(board) == O){
       let v = Infinity;
       let myactions = actions(board);
-      let optimal = myactions[0];
+      let optimal = [];
       for (let i = 0; i < myactions.length; i++){
         let actionvalue = MaxValue(result(board, myactions[i]));
-        if (actionvalue ==  -1){
-          //return myactions[i];
-        }
         if (actionvalue < v){
-          optimal = myactions[i];
+          optimal = [];
+          optimal.push(myactions[i]);
           v = MaxValue(result(board, myactions[i]));
         }
+        else if (actionvalue == v){
+          optimal.push(myactions[i]);
+        }
       }
-      return optimal;
+      return optimal[Math.floor(Math.random() * optimal.length)];
     }
     else{
       //As any first move is expected to tie playing optimally, just randomize the first move to be quicker
@@ -349,18 +345,19 @@ function GameStart(){
       }
       let v = - Infinity;
       let myactions = actions(board);
-      let optimal = myactions[0];
+      let optimal = [];
       for (let i = 0; i < myactions.length; i++){
         let actionvalue = MinValue(result(board, myactions[i]));
-        if (actionvalue ==  1){
-          //return myactions[i];
-        }
         if (actionvalue > v){
-          optimal = myactions[i];
+          optimal = [];
+          optimal.push(myactions[i]);
           v = MinValue(result(board, myactions[i]));
         }
+        else if (actionvalue == v){
+          optimal.push(myactions[i]);
+        }
       }
-      return optimal;
+      return optimal[Math.floor(Math.random() * optimal.length)];
     }
   }
 

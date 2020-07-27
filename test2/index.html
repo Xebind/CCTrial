@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="static/styles/style.css">
     <link rel="stylesheet" type="text/css" href="static/styles/tablet.css">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -193,7 +198,7 @@
         const mainmessage = "Welcome to my Pokemon Lab. I am professor Bugz Buggy. I have been researching Pokemon DNA for a long time and accidentally I combined myself with a sample. <br> <br> I just wish it was a Machoke sample instead of a Caterpie... <br> <br> Please enjoy your stay in the Lab.";
         const startersmessage = "Please, enjoy the dance of my favourite pokemons :D <br><br> Click here to return to the main menu.";
         const quizmessage = "Since we may be coworkers soon, here you can find 4 questions to get to know me a little bit better, good luck!<br><br> Click here to return to the main menu.";
-        const tttmessage = 'I dare you to beat my Alakazam in a game of TicTacToe. <br>Beware! He can read your mind!<br><br> Click here to return to the main menu.';
+        const tttmessage = 'I dare you to beat my Alakazam in a game of TicTacToe. <br>Beware, he can read your mind!<br><br> Click here to return to the main menu.';
 
         async function Pokeget(id){
           const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -315,31 +320,6 @@
 
 
         }
-
-
-        /*    We tried to automatize the code to gifted pokemons at lvl 5, but a Magikarp and a Beldum made their way in
-        async function GiftPokemons(id){
-          const url = `https://pokeapi.co/api/v2/pokemon/${id}/encounters`;
-          const response = await fetch(url);
-          const encounters = await response.json();
-          for (let i = 0; i < encounters.length; i++){
-            //for some reason the details are i
-            const details = encounters[i]["version_details"][0]["encounter_details"][0];
-            //console.log(details);
-            //console.log(details["method"]);
-            //console.log(details["method"]["name"])
-            if ((details["chance"] == 100) && (details["max_level"] == 5) && (details["method"]["name"] == "gift") && (details["min_level"] == 5)){
-              await Pokeget(id);
-            }
-
-            //for (let j = 0; j < details.length; j++){
-            //}
-          }
-        }
-        for (let i = 1; i < 800; i++){
-           GiftPokemons(i);
-        }
-        */
     </script>
 
   </body>

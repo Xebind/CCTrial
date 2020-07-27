@@ -160,30 +160,6 @@ img{
   margin-left: calc(13vw - 100px)
 }
 
-
-/*
-#Nim{
-  margin-top: 300px;
-}
-.nimImage{
-  width: 100px;
-}
-
-
-.row{
-  width: 80%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#Nim .row:hover{
-  background-color: rgba(0, 0, 0, 0.5);
-}
-*/
-
-
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
