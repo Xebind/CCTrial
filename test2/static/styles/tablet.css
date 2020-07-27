@@ -33,4 +33,8 @@
   button{
     font-size: 12px;
   }
+
+  img{
+    width: 100px;
+  }
 }
